@@ -1,4 +1,4 @@
-package live.project.open_banking_app.service;
+package io.betterbanking.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

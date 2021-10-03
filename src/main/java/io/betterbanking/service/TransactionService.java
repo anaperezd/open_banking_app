@@ -1,7 +1,7 @@
-package live.project.open_banking_app.service;
+package io.betterbanking.service;
 
+import io.betterbanking.domain.Transaction;
 import java.util.List;
-import live.project.open_banking_app.domain.Transaction;
 import org.springframework.stereotype.Service;
 
 @Service

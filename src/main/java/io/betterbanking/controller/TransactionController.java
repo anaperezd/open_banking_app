@@ -1,8 +1,8 @@
-package live.project.open_banking_app.controller;
+package io.betterbanking.controller;
 
 import java.util.List;
-import live.project.open_banking_app.domain.Transaction;
-import live.project.open_banking_app.service.TransactionService;
+import io.betterbanking.domain.Transaction;
+import io.betterbanking.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package live.project.open_banking_app.domain;
+package io.betterbanking.domain;
 
 import lombok.Builder;
 import lombok.Data;
