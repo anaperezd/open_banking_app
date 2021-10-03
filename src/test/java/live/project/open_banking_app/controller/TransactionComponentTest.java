@@ -4,19 +4,14 @@ import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 
 import live.project.open_banking_app.service.TransactionService;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 
-@SpringBootTest
 public class TransactionComponentTest {
 
-  @MockBean private TransactionService transactionService;
-
   @Test
-  public void testGetTransactions() {
+  public void testApplicationEndToEnd() {
     given()
-        .standaloneSetup(new TransactionController(transactionService))
+        .standaloneSetup(new TransactionController(new TransactionService()))
         .when()
         .get("/transactions")
         .then()
