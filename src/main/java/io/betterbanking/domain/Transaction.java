@@ -1,5 +1,7 @@
 package io.betterbanking.domain;
 
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,10 +12,10 @@ public class Transaction {
   // todo, all strings, should some be sth else, e.g. number or date?
   // todo, should they be final
   private String type;
-  private String date;
+  private OffsetDateTime date;
   private String accountNumber;
   private String currency;
-  private String amount;
+  private BigDecimal amount;
   private String merchantName;
   private String merchantLogo;
 }
