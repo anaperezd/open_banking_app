@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'org.openapi.generator' version '5.2.1'
 }
 
 group = 'io.betterbanking'
@@ -29,4 +30,21 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+openApiValidate {
+    inputSpec = "$rootDir/specs/account-info-openapi.yaml".toString()
+}
+
+openApiGenerate {
+    generatorName = "spring"
+    inputSpec = "$rootDir/specs/account-info-openapi.yaml".toString()
+    outputDir = "$buildDir/generated-open".toString()
+    
+    apiPackage = "io.betterbanking.server.api"
+    invokerPackage = "io.betterbanking.server.invoker"
+    modelPackage = "io.betterbanking.server.model"
+    configOptions = [
+            dateLibrary: "java8"
+    ]
 }
