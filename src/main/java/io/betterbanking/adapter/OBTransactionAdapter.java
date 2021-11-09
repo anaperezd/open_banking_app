@@ -7,16 +7,18 @@ import java.math.BigDecimal;
 public class OBTransactionAdapter {
 
   public Transaction mapTransaction(OBTransaction6 obTransaction6) {
+    String type = obTransaction6.getCreditDebitIndicator() == null ? null : obTransaction6.getCreditDebitIndicator().getValue();
+    String merchantName = obTransaction6.getMerchantDetails() == null ? null : obTransaction6.getMerchantDetails().getMerchantName();
     return Transaction.builder()
         .accountNumber(obTransaction6.getAccountId())
-        .type(obTransaction6.getCreditDebitIndicator().getValue())
+        .type(type)
         .currency(obTransaction6.getCurrencyExchange().getUnitCurrency())
         .amount(
             obTransaction6
                 .getCurrencyExchange()
                 .getExchangeRate()
                 .multiply(new BigDecimal(obTransaction6.getAmount().getAmount())))
-        .merchantName(obTransaction6.getMerchantDetails().getMerchantName())
+        .merchantName(merchantName)
         .date(obTransaction6.getValueDateTime())
         .build();
   }
